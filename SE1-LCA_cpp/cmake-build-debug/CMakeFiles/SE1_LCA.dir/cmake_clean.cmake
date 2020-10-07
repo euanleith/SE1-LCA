@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/SE1_LCA.dir/main.cpp.o"
+  "CMakeFiles/SE1_LCA.dir/BST.cpp.o"
   "SE1_LCA"
   "SE1_LCA.pdb"
 )

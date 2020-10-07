@@ -57,27 +57,27 @@ include CMakeFiles/SE1_LCA.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/SE1_LCA.dir/flags.make
 
-CMakeFiles/SE1_LCA.dir/main.cpp.o: CMakeFiles/SE1_LCA.dir/flags.make
-CMakeFiles/SE1_LCA.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/sharon/IdeaProjects/SE1-LCA/SE1-LCA_cpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SE1_LCA.dir/main.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SE1_LCA.dir/main.cpp.o -c /Users/sharon/IdeaProjects/SE1-LCA/SE1-LCA_cpp/main.cpp
+CMakeFiles/SE1_LCA.dir/BST.cpp.o: CMakeFiles/SE1_LCA.dir/flags.make
+CMakeFiles/SE1_LCA.dir/BST.cpp.o: ../BST.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/sharon/IdeaProjects/SE1-LCA/SE1-LCA_cpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SE1_LCA.dir/BST.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SE1_LCA.dir/BST.cpp.o -c /Users/sharon/IdeaProjects/SE1-LCA/SE1-LCA_cpp/BST.cpp
 
-CMakeFiles/SE1_LCA.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SE1_LCA.dir/main.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sharon/IdeaProjects/SE1-LCA/SE1-LCA_cpp/main.cpp > CMakeFiles/SE1_LCA.dir/main.cpp.i
+CMakeFiles/SE1_LCA.dir/BST.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SE1_LCA.dir/BST.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sharon/IdeaProjects/SE1-LCA/SE1-LCA_cpp/BST.cpp > CMakeFiles/SE1_LCA.dir/BST.cpp.i
 
-CMakeFiles/SE1_LCA.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SE1_LCA.dir/main.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sharon/IdeaProjects/SE1-LCA/SE1-LCA_cpp/main.cpp -o CMakeFiles/SE1_LCA.dir/main.cpp.s
+CMakeFiles/SE1_LCA.dir/BST.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SE1_LCA.dir/BST.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sharon/IdeaProjects/SE1-LCA/SE1-LCA_cpp/BST.cpp -o CMakeFiles/SE1_LCA.dir/BST.cpp.s
 
 # Object files for target SE1_LCA
 SE1_LCA_OBJECTS = \
-"CMakeFiles/SE1_LCA.dir/main.cpp.o"
+"CMakeFiles/SE1_LCA.dir/BST.cpp.o"
 
 # External object files for target SE1_LCA
 SE1_LCA_EXTERNAL_OBJECTS =
 
-SE1_LCA: CMakeFiles/SE1_LCA.dir/main.cpp.o
+SE1_LCA: CMakeFiles/SE1_LCA.dir/BST.cpp.o
 SE1_LCA: CMakeFiles/SE1_LCA.dir/build.make
 SE1_LCA: CMakeFiles/SE1_LCA.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/sharon/IdeaProjects/SE1-LCA/SE1-LCA_cpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable SE1_LCA"

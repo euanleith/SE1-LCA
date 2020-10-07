@@ -123,32 +123,32 @@ SE1_LCA/fast:
 	$(MAKE) -f CMakeFiles/SE1_LCA.dir/build.make CMakeFiles/SE1_LCA.dir/build
 .PHONY : SE1_LCA/fast
 
-main.o: main.cpp.o
+BST.o: BST.cpp.o
 
-.PHONY : main.o
+.PHONY : BST.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/SE1_LCA.dir/build.make CMakeFiles/SE1_LCA.dir/main.cpp.o
-.PHONY : main.cpp.o
+BST.cpp.o:
+	$(MAKE) -f CMakeFiles/SE1_LCA.dir/build.make CMakeFiles/SE1_LCA.dir/BST.cpp.o
+.PHONY : BST.cpp.o
 
-main.i: main.cpp.i
+BST.i: BST.cpp.i
 
-.PHONY : main.i
+.PHONY : BST.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/SE1_LCA.dir/build.make CMakeFiles/SE1_LCA.dir/main.cpp.i
-.PHONY : main.cpp.i
+BST.cpp.i:
+	$(MAKE) -f CMakeFiles/SE1_LCA.dir/build.make CMakeFiles/SE1_LCA.dir/BST.cpp.i
+.PHONY : BST.cpp.i
 
-main.s: main.cpp.s
+BST.s: BST.cpp.s
 
-.PHONY : main.s
+.PHONY : BST.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/SE1_LCA.dir/build.make CMakeFiles/SE1_LCA.dir/main.cpp.s
-.PHONY : main.cpp.s
+BST.cpp.s:
+	$(MAKE) -f CMakeFiles/SE1_LCA.dir/build.make CMakeFiles/SE1_LCA.dir/BST.cpp.s
+.PHONY : BST.cpp.s
 
 # Help Target
 help:
@@ -159,9 +159,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... SE1_LCA"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... BST.o"
+	@echo "... BST.i"
+	@echo "... BST.s"
 .PHONY : help
 
 

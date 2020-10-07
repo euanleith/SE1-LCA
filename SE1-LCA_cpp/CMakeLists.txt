@@ -3,4 +3,4 @@ project(SE1_LCA)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(SE1_LCA main.cpp)
+add_executable(SE1_LCA BST.cpp BST.h)
