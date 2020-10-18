@@ -1,2 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc libsrc_lib.a  CMakeFiles/src_lib.dir/BST.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/ranlib libsrc_lib.a
