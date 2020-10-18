@@ -3,4 +3,5 @@ project(SE1_LCA)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(SE1_LCA BST.cpp BST.h)
+add_subdirectory(src)
+add_subdirectory(Tests)
