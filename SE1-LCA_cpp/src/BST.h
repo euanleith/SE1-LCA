@@ -26,9 +26,13 @@ public:
 
     static Node* put(int val, Node* node);
 
-    int LCA(int val1, int val2);
+    bool contains(int val);
 
-    static int LCA(int val1, int val2, Node* node);
+    static Node* get(int val, Node* node);
+
+    int lca(int val1, int val2);
+
+    static int lca(int val1, int val2, Node* node);
 };
 
 

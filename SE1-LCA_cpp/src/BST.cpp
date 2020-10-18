@@ -17,25 +17,24 @@ BST::Node* BST::put(int val, Node* node) {
     return node;
 }
 
-int BST::LCA(int val1, int val2) {
-    return LCA(val1, val2, root);
+bool BST::contains(int val) {
+    return get(val, root) != nullptr;
 }
 
-int BST::LCA(int val1, int val2, Node* node) {
-    if (val1 > node->val && val2 > node->val) return LCA(val1, val2, node->right);
-    else if (val1 < node->val && val2 < node->val) return LCA(val1, val2, node->left);
+BST::Node* BST::get(int val, Node* node) {
+    if (node == nullptr) return nullptr;
+    if (val > node->val) return get(val, node->right);
+    else if (val < node->val) return get(val, node->left);
+    return node;
+}
+
+int BST::lca(int val1, int val2) {
+    if (!contains(val1) || !contains(val2)) return -1;
+    return lca(val1, val2, root);
+}
+
+int BST::lca(int val1, int val2, Node* node) {
+    if (val1 > node->val && val2 > node->val) return lca(val1, val2, node->right);
+    else if (val1 < node->val && val2 < node->val) return lca(val1, val2, node->left);
     else return node->val;
-}
-
-int main() {
-    BST* bst = new BST();
-    bst->put(2);
-    bst->put(4);
-    bst->put(1);
-    bst->put(3);
-    bst->put(6);
-
-    std::cout << bst->LCA(1, 4) << std::endl;
-    std::cout << bst->LCA(3, 6) << std::endl;
-    return 0;
 }

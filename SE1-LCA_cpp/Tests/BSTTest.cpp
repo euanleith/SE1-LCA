@@ -5,26 +5,33 @@
 #include "gtest/gtest.h"
 #include "BST.h"
 
-class BSTTest : public ::testing::Test {
+TEST(BSTTest, containsTest) {
+    BST * bst = new BST();
 
-protected:
-    virtual void SetUp()
-    {
-        bst = new BST();
-    }
+    EXPECT_FALSE(bst->contains(2));
 
-    virtual void TearDown() {
-        delete bst;
-    }
+    bst->put(2);
+    bst->put(4);
+    bst->put(1);
+    bst->put(3);
 
-    BST * bst;
-};
-
-
-TEST(BSTTest, putTest) {
-    //todo
+    EXPECT_TRUE(bst->contains(2));
+    EXPECT_FALSE(bst->contains(5));
 }
 
-TEST(BSTTest, LCA) {
-    //todo
+TEST(BSTTest, lca) {
+    BST * bst = new BST();
+
+    EXPECT_EQ(-1, bst->lca(1, 4));
+
+    bst->put(2);
+    bst->put(2);
+    bst->put(4);
+    bst->put(1);
+    bst->put(3);
+    bst->put(6);
+
+    EXPECT_EQ(2, bst->lca(1, 4));
+    EXPECT_EQ(4, bst->lca(6, 3));
+    EXPECT_EQ(-1, bst->lca(1, 5));
 }

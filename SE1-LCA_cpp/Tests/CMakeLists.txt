@@ -6,3 +6,4 @@ include_directories(SYSTEM ../src)
 
 add_executable(Google_Tests_run BSTTest.cpp)
 target_link_libraries(Google_Tests_run gtest gtest_main)
+target_link_libraries(Google_Tests_run src_lib)
