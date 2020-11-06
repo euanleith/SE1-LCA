@@ -1,47 +1,69 @@
-import javafx.util.Pair;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
 public class DAG<T extends Comparable<T>> {
-    private HashMap<T, HashSet<T>> adj; // vertex : parents
 
-    DAG(T root) {
+    private final HashMap<T, HashSet<T>> adj; // adjacency matrix of vertex : parents
+
+    public DAG(T root) {
         adj = new HashMap<>();
         adj.put(root, new HashSet<>());
     }
 
-    //todo allow addition of just val?
     /**
-     *
-     * @param val
-     * @param childVal
-     * @return true if childVal not in val's list of children, otherwise false
+     * Adds the given node 'childNode' to the list of 'node's children
+     * 'node' added if not already in dag
+     * Note: can't add null node
+     * @param node parent node
+     * @param childNode node to be child of 'node'
+     * @return true if childNode not in 'node's list of children, false if either node is null, otherwise false
      */
-    boolean put(T val, T childVal) {
-        if (!adj.containsKey(val)) adj.put(val, new HashSet<>());
-        if (adj.get(childVal).contains(val)) return false;
-        adj.get(childVal).add(val);
+    public boolean put(T node, T childNode) {
+        if (node == null || childNode == null) return false;
+        if (!adj.containsKey(node)) adj.put(node, new HashSet<>());
+        if (adj.get(childNode).contains(node)) return false;
+        adj.get(childNode).add(node);
         return true;
     }
 
-    boolean put(T val) {
-        if (adj.containsKey(val)) return false;
-        adj.put(val, new HashSet<>());
+    /**
+     * Adds the given node to the dag if not already in it
+     * Note: can't add null node
+     * @param node node
+     * @return true if node not in dag, false if node is null, otherwise false
+     */
+    public boolean put(T node) {
+        if (node == null) return false;
+        if (adj.containsKey(node)) return false;
+        adj.put(node, new HashSet<>());
         return true;
     }
 
-    boolean contains(T val) {
-        return adj.containsKey(val);
+    /**
+     * Returns whether dag contains given node
+     * @param node node
+     * @return true if dag contains node, otherwise false
+     */
+    public boolean contains(T node) {
+        return adj.containsKey(node);
     }
 
 
-    T lca(T val1, T val2) {
-        if (val1 == null || val2 == null) return null; //todo
-        //todo bfs through val1 into list; then same for val2; and find deepest common between lists
-        HashMap<T, Integer> ancestors1 = getAncestors(val1, new HashMap<>(), 0);//todo init size?
-        HashMap<T, Integer> ancestors2 = getAncestors(val2, new HashMap<>(), 0);
+    /**
+     * Finds the lowest common ancestor (lca) of the two given nodes
+     * by finding the ancestors of each and their depths from that node,
+     * and finding the common node between these ancestors with the highest depth
+     * Note: neither given nodes can be null, nor not in the dag
+     * @param node1 first node
+     * @param node2 second node
+     * @return the lowest common ancestor of the two given nodes
+     * null if either node given is null, or isn't in the dag
+     */
+    public T lca(T node1, T node2) {
+        if (node1 == null || node2 == null ||
+            !adj.containsKey(node1) || !adj.containsKey(node2)) return null;
+        HashMap<T, Integer> ancestors1 = getAncestors(node1);
+        HashMap<T, Integer> ancestors2 = getAncestors(node2);
         HashMap.Entry<T, Integer> lca = null;
         for (HashMap.Entry<T, Integer> e : ancestors1.entrySet()) {
             if (ancestors2.containsKey(e.getKey())) {
@@ -53,22 +75,37 @@ public class DAG<T extends Comparable<T>> {
     }
 
     /**
-     *
-     * @param val node to get ancestors of
+     * Finds the ancestors of a given node by depth-first search
+     * Note: a node is considered one of it's ancestors
+     * @param node node to get ancestors of
+     * @return map of all ancestors of the given node and their depths
+     */
+    public HashMap<T, Integer> getAncestors(T node) {
+        if (node == null || !adj.containsKey(node)) return null;
+        return getAncestors(node, new HashMap<>(), 1);
+    }
+
+    /**
+     * Finds the ancestors of a given node by depth-first search
+     * Note: a node is considered one of it's ancestors
+     * @param node node to get ancestors of
      * @param ancestors current map of ancestor : depth
      * @param depth current depth of search
      * @return map of all ancestors of the given node and their depths
      */
-    HashMap<T, Integer> getAncestors(T val, HashMap<T, Integer> ancestors, int depth) {
-
+    private HashMap<T, Integer> getAncestors(T node, HashMap<T, Integer> ancestors, int depth) {
         // add new direct ancestors
-        HashSet<T> directAncestors = adj.get(val);
+        HashSet<T> directAncestors = adj.get(node);
         boolean foundNewAncestor = false;
         for (T ancestor : directAncestors) {
             if (!ancestors.containsKey(ancestor)) {
                 foundNewAncestor = true;
                 ancestors.put(ancestor, depth);
             }
+        }
+        if (!ancestors.containsKey(node)) {
+            ancestors.put(node, depth-1);
+            foundNewAncestor = true;
         }
 
         // return if done
@@ -82,6 +119,10 @@ public class DAG<T extends Comparable<T>> {
         return ancestors;
     }
 
+    /**
+     * @return adjacency matrix of the dag
+     * of the form vertex : parents
+     */
     HashMap<T, HashSet<T>> getAdj() {
         return adj;
     }
